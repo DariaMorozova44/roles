@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>adduser</title>
+</head>
+<body>
+<h2>adduser</h2>
+<div>
+    <form th:action="@{/users/add}" th:object="${user}" method="post">
+        <fieldset>
+            <legend>user data</legend>
+            <p>
+                <label th:for="name">name</label>
+                <input type="text" name="name" th:id="name" th:value="${user.getName()}">
+            </p>
+            <p>
+                <label th:for="lastname">lastname</label>
+                <input type="text" name="lastname" th:id="lastname" th:value="${user.getLastname()}"><br/>
+
+            </p>
+            <p>
+                <label th:for="age">age</label>
+                <input type="text" name="age" th:id="age" th:value="${user.getAge()}"><br/>
+            </p>
+        </fieldset>
+        <button type="submit">save user</button>
+    </form>
+
+    <br/>
+    <form th:action="@{/users}">
+        <button type="submit" class="btn btn-outline-danger">back</button>
+    </form>
+</div>
+</body>
+</html>
